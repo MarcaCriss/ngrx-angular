@@ -5,20 +5,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
-import { LoginPageComponent } from './auth/containers/login-page/login-page.component';
-import { EffectsModule } from '@ngrx/effects';
+import { counterReducer } from './reducer/contador.reducer';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({}, {}),
-    EffectsModule.forRoot([])
+    StoreModule.forRoot({count: counterReducer}),
   ],
   providers: [],
   bootstrap: [AppComponent]
